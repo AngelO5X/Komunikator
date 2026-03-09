@@ -38,6 +38,7 @@ System składa się z dwóch kluczowych komponentów:
 ## ⚙️ Specyfikacja Techniczna (WNF)
 
 ### Środowisko i Wydajność
+* **Native x86:** Wsparcie jak najszersze gammy serwerów i maszyn w celu ułatwienia hostowania serwerów.
 * **Native ARM64:** Optymalizacja pod Apple Silicon, AWS Graviton oraz Raspberry Pi.
 * **Docker Ready:** Wdrożenie za pomocą `docker-compose`.
 * **Low Resource:** Instancja PIK wymaga docelowo jedynie **512MB RAM**.
