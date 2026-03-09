@@ -55,13 +55,4 @@ Każda wiadomość w systemie musi spełniać poniższy standard matematyczny w 
 <img width="636" height="157" alt="Zrzut ekranu 2026-03-09 160628" src="https://github.com/user-attachments/assets/3dade03a-59c7-4ca9-a084-6bb04bae494e" />
 
 
----
-
-## 🛠️ Instalacja (Docker)
-
-```bash
-git clone [https://github.com/twoj-user/projekt-komunikator.git](https://github.com/twoj-user/projekt-komunikator.git)
-cd projekt-komunikator
-docker-compose up -d
-
 
