@@ -5,7 +5,7 @@
 
 System rozproszonej komunikacji opartej na architekturze **CWC-PIK**, zoptymalizowany dla platform x86 jak i ARM64 i zapewniający pełną prywatność dzięki Szyfrowaniu End-to-End (E2EE).
 
-## 🏗️ Architektura Systemu
+##  Architektura Systemu
 
 System składa się z dwóch kluczowych komponentów:
 1.  **Centralny Węzeł Certyfikujący (CWC):** Odpowiada za zarządzanie tożsamością, rejestrację użytkowników i autoryzację instancji.
@@ -15,7 +15,7 @@ System składa się z dwóch kluczowych komponentów:
 
 ---
 
-## 🚀 Kluczowe Funkcjonalności (WF)
+##  Kluczowe Funkcjonalności (WF)
 
 ### WF-01: Tożsamość i Autoryzacja
 * **Centralna Rejestracja:** Konta tworzone są wyłącznie w zaufanym węźle CWC.
@@ -35,7 +35,7 @@ System składa się z dwóch kluczowych komponentów:
 
 ---
 
-## ⚙️ Specyfikacja Techniczna (WNF)
+##  Specyfikacja Techniczna (WNF)
 
 ### Środowisko i Wydajność
 * **Native x86:** Wsparcie jak najszersze gammy serwerów i maszyn w celu ułatwienia hostowania serwerów.
@@ -50,7 +50,7 @@ System składa się z dwóch kluczowych komponentów:
 
 ---
 
-## 🔐 Model Kryptograficzny (1+2)
+##  Model Kryptograficzny (1+2)
 
 Każda wiadomość w systemie musi spełniać poniższy standard matematyczny w celu zapewnienia integralności:
 <img width="636" height="157" alt="Zrzut ekranu 2026-03-09 160628" src="https://github.com/user-attachments/assets/3dade03a-59c7-4ca9-a084-6bb04bae494e" />
