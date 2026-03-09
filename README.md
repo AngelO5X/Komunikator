@@ -40,7 +40,7 @@ System składa się z dwóch kluczowych komponentów:
 ### Środowisko i Wydajność
 * **Native ARM64:** Optymalizacja pod Apple Silicon, AWS Graviton oraz Raspberry Pi.
 * **Docker Ready:** Wdrożenie za pomocą `docker-compose`.
-* **Low Resource:** Instancja PIK wymaga jedynie **512MB RAM**.
+* **Low Resource:** Instancja PIK wymaga docelowo jedynie **512MB RAM**.
 
 ### Bezpieczeństwo
 * **Protokół:** TLS 1.3 dla wszystkich połączeń.
