@@ -1,7 +1,7 @@
 # SpeakNow
 -------------------------------
 
-# 🛡️ Distributed Messenger System (DMS)
+#  Distributed Messenger System (DMS)
 
 System rozproszonej komunikacji opartej na architekturze **CWC-PIK**, zoptymalizowany dla platform x86 jak i ARM64 i zapewniający pełną prywatność dzięki Szyfrowaniu End-to-End (E2EE).
 
