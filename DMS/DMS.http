@@ -1,0 +1,16 @@
+@DMS_HostAddress = http://localhost:5193
+
+GET {{DMS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST https://localhost:32771/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@test.pl",
+  "username": "tester",
+  "password": "MojeTajneHaslo123",
+  "language": "pl"
+}
