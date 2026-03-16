@@ -3054,11 +3054,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekty Studia\\DMS\\DMS.csproj",
+      "projectUniqueName": "C:\\Projekty Studia\\Komunikator\\DMS\\DMS.csproj",
       "projectName": "DMS",
-      "projectPath": "C:\\Projekty Studia\\DMS\\DMS.csproj",
+      "projectPath": "C:\\Projekty Studia\\Komunikator\\DMS\\DMS.csproj",
       "packagesPath": "C:\\Users\\2apio\\.nuget\\packages\\",
-      "outputPath": "C:\\Projekty Studia\\DMS\\obj\\",
+      "outputPath": "C:\\Projekty Studia\\Komunikator\\DMS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\VisualStudio\\2022\\Shared\\NuGetPackages"

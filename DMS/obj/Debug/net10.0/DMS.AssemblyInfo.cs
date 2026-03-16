@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0066fa712cd2dc897e22555330fceb80ed1a723d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
