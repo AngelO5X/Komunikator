@@ -6,7 +6,8 @@ public class CreatePrivateMessageRequestValidator : AbstractValidator<CreatePriv
     {
         RuleFor(x => x.Content)
             .NotEmpty().WithMessage("Treść wiadomości jest wymagana.")
-            .MinimumLength(1).WithMessage("Treść nie może być pusta.");
+            .MinimumLength(1).WithMessage("Treść nie może być pusta.")
+            .MaximumLength(2000).WithMessage("Treść wiadomości jest za długa.");
 
         RuleFor(x => x.SenderUUID)
             .NotEmpty().WithMessage("SenderUUID jest wymagane.")

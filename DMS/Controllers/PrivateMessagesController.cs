@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 [ApiController]
+[Authorize]
 [Route("api/messages")]
 public class PrivateMessagesController : ControllerBase
 {
@@ -12,6 +15,15 @@ public class PrivateMessagesController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreatePrivateMessageRequest request)
     {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        // If JWT contains user id claim, prefer it over caller-supplied SenderUUID to prevent spoofing
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (Guid.TryParse(userIdClaim, out var callerUuid))
+        {
+            request.SenderUUID = callerUuid;
+        }
+
         var message = new PrivateMessage
         {
             SenderUUID = request.SenderUUID,
