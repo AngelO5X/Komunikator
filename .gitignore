@@ -30,3 +30,7 @@ Desktop.ini
 .copilot/
 copilot-debug.log
 .github/copilot/
+
+# Debug
+bin/Debug/
+obj/
