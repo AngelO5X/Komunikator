@@ -5,3 +5,11 @@
 -------------
 
 usunąć try catch w endpointach, niech się błędy rzucają, a globalny handler je obsłuży
+
+------------
+posortować modele
+
+walidatory przenieść do folderu validators
+zastosować automapera
+priwatmessagecontroler -> poprwić powtórzenia metodami
+sigmacotroler uprościć kod 
