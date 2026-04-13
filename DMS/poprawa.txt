@@ -4,3 +4,4 @@
 
 -------------
 
+usunąć try catch w endpointach, niech się błędy rzucają, a globalny handler je obsłuży

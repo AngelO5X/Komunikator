@@ -45,7 +45,6 @@ public static class VoiceWebSocketHandler
 
                 var messageBytes = ms.ToArray();
 
-                // Broadcast binary message to other participants in the same session
                 foreach (var kv in participants)
                 {
                     if (kv.Key == userId) continue;
@@ -58,7 +57,7 @@ public static class VoiceWebSocketHandler
                         }
                         catch
                         {
-                            // ignore send errors
+                            // ignore
                         }
                     }
                 }

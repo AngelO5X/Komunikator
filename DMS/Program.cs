@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.RateLimiting;
 using System.Threading.RateLimiting;
+using System.Net;
+using System.Net.Sockets;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,27 +28,24 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DmsDbContext>(options =>
     options.UseSqlite("Data Source=speaknow.db"));
 
-// CORS: allow only localhost dev origin by default. Configure in production using configuration.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Default", policy =>
         policy.WithOrigins("https://localhost:5001").AllowAnyHeader().AllowAnyMethod());
 });
 
-// Rate limiting - basic fixed window limiter
 builder.Services.AddRateLimiter(options =>
 {
     options.AddFixedWindowLimiter("global", cfg =>
     {
-        cfg.PermitLimit = 100; // 100 requests
-        cfg.Window = TimeSpan.FromMinutes(1); // per minute
+        cfg.PermitLimit = 100; 
+        cfg.Window = TimeSpan.FromMinutes(1);
         cfg.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
         cfg.QueueLimit = 0;
     });
     options.RejectionStatusCode = 429;
 });
 
-// JWT signing key should come from configuration or environment in production
 var jwtKey = builder.Configuration["Jwt:Key"] ?? Environment.GetEnvironmentVariable("JWT_KEY") ?? "super_secret_jwt_signing_key_for_dev_only";
 builder.Services.AddAuthentication(options =>
 {
@@ -57,7 +56,6 @@ builder.Services.AddAuthentication(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            // Keep issuer/audience validation off until tokens are configured with proper values.
             ValidateIssuer = false,
             ValidateAudience = false,
             ValidateIssuerSigningKey = true,
@@ -81,10 +79,28 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+if (builder.Environment.IsDevelopment())
+{
+    int port;
+    var listener = new TcpListener(IPAddress.Loopback, 0);
+    try
+    {
+        listener.Start();
+        port = ((IPEndPoint)listener.LocalEndpoint).Port;
+    }
+    finally
+    {
+        listener.Stop();
+    }
+
+    var url = $"http://localhost:{port}";
+    Environment.SetEnvironmentVariable("ASPNETCORE_URLS", url);
+    Console.WriteLine($"[DEV] Overriding ASPNETCORE_URLS and using {url} to avoid HTTPS binding issues.");
+}
+
 var app = builder.Build();
 
 
-// Enable OpenAPI/Swagger only in development
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -92,7 +108,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Add HSTS in non-development environments
 if (!app.Environment.IsDevelopment())
 {
     app.UseHsts();
@@ -100,7 +115,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Simple security headers
 app.Use(async (context, next) =>
 {
     context.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -111,25 +125,6 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// CORS: allow only localhost dev origin by default. Configure in production using configuration.
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Default", policy =>
-        policy.WithOrigins("https://localhost:5001").AllowAnyHeader().AllowAnyMethod());
-});
-
-// Rate limiting - basic fixed window limiter
-builder.Services.AddRateLimiter(options =>
-{
-    options.AddFixedWindowLimiter("global", cfg =>
-    {
-        cfg.PermitLimit = 100; // 100 requests
-        cfg.Window = TimeSpan.FromMinutes(1); // per minute
-        cfg.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-        cfg.QueueLimit = 0;
-    });
-    options.RejectionStatusCode = 429;
-});
 
 app.UseCors("Default");
 app.UseRateLimiter();
@@ -153,5 +148,17 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated(); 
 }
 
-app.Run();
+try
+{
+    app.Run();
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine("Application failed to start. Exception: " + ex);
+    if (ex.InnerException != null)
+    {
+        Console.Error.WriteLine("Inner exception: " + ex.InnerException);
+    }
+    throw;
+}
 
