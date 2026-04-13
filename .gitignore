@@ -25,3 +25,8 @@ publish
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# GitHub Copilot logs and temporary files
+.copilot/
+copilot-debug.log
+.github/copilot/

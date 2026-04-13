@@ -53,5 +53,5 @@ public class PrivateMessage
     [MinLength(1)]
     public string Content { get; set; } // tresc wiadomosci
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow; //czas wyslania wiadomosci
 }

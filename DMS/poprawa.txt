@@ -1,3 +1,7 @@
 1. mapowanie automatyczne endpointów
 2. zastosować fluid validation https://docs.fluentvalidation.net/en/latest/
 3. posortować DTO
+
+-------------
+
+usunąć try catch w endpointach, niech się błędy rzucają, a globalny handler je obsłuży
