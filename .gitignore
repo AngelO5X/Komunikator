@@ -1,0 +1,36 @@
+## Visual Studio Temp Files
+.vs
+[Bb]in
+[Oo]bj
+.user
+.userosscache
+.sln.docstates
+
+## Roslyn & Code Analysis
+.generated.cs
+.ruleset
+
+## Testing & Results
+TestResults
+.trx
+.vstest
+
+## Packages & Publishing
+packages
+node_modules
+publish
+.nupkg
+
+## OS Generated
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# GitHub Copilot logs and temporary files
+.copilot/
+copilot-debug.log
+.github/copilot/
+
+# Debug
+bin/Debug/
+obj/
