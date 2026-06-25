@@ -37,7 +37,7 @@ startApp();
 function renderLogin() {
     app.innerHTML = `
         <div class="auth-screen">
-            <div class="auth-box">
+            <div class="auth-box auth-login">
                 <h1>SpeakNow</h1>
                 <p>Zaloguj się do komunikatora</p>
 
@@ -64,7 +64,7 @@ function renderLogin() {
 function renderRegister() {
     app.innerHTML = `
         <div class="auth-screen">
-            <div class="auth-box">
+            <div class="auth-box auth-register">
                 <h1>SpeakNow</h1>
                 <p>Utwórz nowe konto</p>
 
@@ -248,7 +248,7 @@ function startMessagePolling() {
         if (activeReceiverId) {
             loadConversation();
         }
-    }, 1500);
+    }, 10);
 }
 
 function renderMessages() {
