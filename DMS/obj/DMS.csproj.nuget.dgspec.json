@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projekty Studia\\Komunikator\\DMS\\DMS.csproj": {}
+    "C:\\Users\\kurcz\\Documents\\GitHub\\Komunikator\\DMS\\DMS.csproj": {}
   },
   "projects": {
-    "C:\\Projekty Studia\\Komunikator\\DMS\\DMS.csproj": {
+    "C:\\Users\\kurcz\\Documents\\GitHub\\Komunikator\\DMS\\DMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projekty Studia\\Komunikator\\DMS\\DMS.csproj",
+        "projectUniqueName": "C:\\Users\\kurcz\\Documents\\GitHub\\Komunikator\\DMS\\DMS.csproj",
         "projectName": "DMS",
-        "projectPath": "C:\\Projekty Studia\\Komunikator\\DMS\\DMS.csproj",
-        "packagesPath": "C:\\Users\\2apio\\.nuget\\packages\\",
-        "outputPath": "C:\\Projekty Studia\\Komunikator\\DMS\\obj\\",
+        "projectPath": "C:\\Users\\kurcz\\Documents\\GitHub\\Komunikator\\DMS\\DMS.csproj",
+        "packagesPath": "C:\\Users\\kurcz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kurcz\\Documents\\GitHub\\Komunikator\\DMS\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\VisualStudio\\2022\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\2apio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\kurcz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,11 +22,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -45,10 +41,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -105,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

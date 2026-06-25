@@ -148,3 +148,108 @@ body {
         .input-area button:hover {
             background: #3b82f6;
         }
+
+
+.users-section {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.section-title {
+    color: #a1a1aa;
+    font-size: 13px;
+    margin: 10px 8px;
+    text-transform: uppercase;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+    border-radius: 12px;
+
+    cursor: pointer;
+    background: #18181b;
+    transition: 0.2s;
+}
+
+.user-item:hover {
+    background: #27272a;
+}
+
+.active-user {
+    background: #2563eb;
+}
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+    background: #3f3f46;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-status {
+    color: #a1a1aa;
+    font-size: 12px;
+}
+
+.loading-users {
+    color: #a1a1aa;
+    padding: 10px;
+}
+
+.sidebar-bottom {
+    padding: 15px;
+    border-top: 1px solid #27272a;
+    background: #09090b;
+}
+
+.sidebar-bottom p {
+    color: #a1a1aa;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.sidebar-bottom button {
+    margin-top: 10px;
+    width: 100%;
+
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+
+    background: #27272a;
+    color: white;
+
+    cursor: pointer;
+}
+
+.sidebar-bottom button:hover {
+    background: #3f3f46;
+}
+
+.input-area button:disabled,
+.input-area input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

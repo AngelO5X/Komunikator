@@ -31,7 +31,9 @@ builder.Services.AddDbContext<DmsDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Default", policy =>
-        policy.WithOrigins("https://localhost:5001").AllowAnyHeader().AllowAnyMethod());
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod());
 });
 
 builder.Services.AddRateLimiter(options =>
@@ -81,21 +83,8 @@ builder.Services.AddAuthentication(options =>
 
 if (builder.Environment.IsDevelopment())
 {
-    int port;
-    var listener = new TcpListener(IPAddress.Loopback, 0);
-    try
-    {
-        listener.Start();
-        port = ((IPEndPoint)listener.LocalEndpoint).Port;
-    }
-    finally
-    {
-        listener.Stop();
-    }
-
-    var url = $"http://localhost:{port}";
-    Environment.SetEnvironmentVariable("ASPNETCORE_URLS", url);
-    Console.WriteLine($"[DEV] Overriding ASPNETCORE_URLS and using {url} to avoid HTTPS binding issues.");
+    builder.WebHost.UseUrls("http://localhost:5000");
+    Console.WriteLine("[DEV] Backend running on http://localhost:5000");
 }
 
 var app = builder.Build();
@@ -113,7 +102,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.Use(async (context, next) =>
 {
